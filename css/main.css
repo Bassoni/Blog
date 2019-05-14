@@ -1,0 +1,153 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    text-align: center;
+    
+}
+
+#baniereTop{
+    width: 100%;
+    max-width: 60%;
+
+}
+
+#img1{
+
+
+}
+#img2{
+
+}
+#img3{
+
+
+}
+#img4{
+
+
+}
+#img5{
+
+
+}
+
+body{
+    font-size: 1.5rem;
+    font-family: 'Lobster', cursive;
+    background-image: linear-gradient(0.35turn,#44c125,#2e8619,#32da07,#1f9221);
+}
+
+#global-container{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+}
+
+h3{
+    font-size: 4rem;
+}
+
+
+header{
+    text-align: center;
+}
+
+header button{
+    width:50px;
+    height: 50px;
+    border-radius: 25px;
+    color: #000;
+    border:4px solid;
+    cursor: pointer;
+}
+
+header button:hover{
+    color: #CE0241;
+    border:4px solid;
+}
+
+#countdown-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:0;
+}
+
+#countdown-list li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin:5px;
+    border-radius: 10px;
+    
+    font-size:7rem;
+}
+
+ul{
+    list-style-type: none;
+    padding:0;
+}
+
+.comment{
+    min-width: 500px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+article{
+    border-bottom: 4px solid darkgreen; 
+    border-right: 2px solid black; 
+    border-left: 8px solid green; 
+    border-top: 1px solid black; 
+    border-radius: 2%;
+
+    background-image: linear-gradient(0.35turn,#44c125,#2e8619,#32da07,#1f9221); 
+
+}
+
+
+form{
+    border-bottom: 4px solid black; 
+    border-right: 2px solid black; 
+    border-left: 8px solid green; 
+    border-top: 1px solid black; 
+    border-radius: 20%;
+    padding: 5% 10% 10% 5%;
+
+}
+
+#formRegister{
+
+    width: 500px;
+    border: 2px solid black;
+    border-radius: 20%;
+}
+
+
+.dark-moon{
+    color: white;
+    border-color: white;
+    background-image: linear-gradient(0.35turn,black,#2e8619,#32da07,white);
+}
+
+.purple-bitch{
+
+    background-image: linear-gradient(0.35turn,purple,#2e8619,#32da07,purple);
+    color: black;
+    border-color: red;
+}

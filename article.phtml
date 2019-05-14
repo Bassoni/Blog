@@ -1,0 +1,89 @@
+<!-- Fichier Template cotient le code HTML -->
+	<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+	    <meta charset="utf-8">
+	    <title><?php echo $titre; ?></title>
+	    <link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body>
+		<img id="baniereTop" src="img/yoshiBaniere.png" alt="Yoshi Island Baniere">
+	    <section id="global-container">
+	        <header>
+	            <h1>Yoshi's Island</h1>
+	            <button><i class="fas fa-plus fa-2x"></i></button>
+	        </header>
+
+	        <main>
+	            <ul id="countdown-list"></ul>
+	            <ul>
+	            	<li><a href="https://fr.wikipedia.org/wiki/Yoshi">Yoshi WebSite</a></li>
+	            </ul>
+
+	            <ul>
+            		<li>
+            			<article>
+            				<p><?= $post['Id']; ?></p>
+            				<h2><strong>Titre : <?= $post['Title']; ?></strong></h2>
+            				<!-- ecrit :   la date de création de l'article (ex 2019-03-21 13:58:34-->
+            				<p><small>Date de création : <?= $post['CreatedAt']; ?></small></p>
+            				<!-- ecrit :   le text/la déscription de l'article -->
+            				<p><?= $post['Content']; ?></p>
+            				<!-- Veriffier si une image est contenu dans la table Post alors l'afficher -->
+            				<?php if (!empty($post['Image'])) { ?>
+            					<img id="img<?= $post['Id']; ?>" src="img/<?= $post['Image']; ?>">
+            				<?php } ?>
+            				<!-- case a coché pour signifier si le poste nous a plu ou pas -->
+            			</article>
+
+            			<section>
+        					
+            				<!-- formulaire -->
+            				<form action="index.php?p=addcomment&postId=<?=$post['Id'];?>" method="POST">
+            					<p>Avez-vous aimé ?
+        						<input type="radio" name="love" value="oui" id="oui" checked="checked" /><label for="oui">Oui</label></p>
+        						<input type="radio" name="love" value="non" id="non"  /><label for="non">Non</label></p>
+            					<!-- le 'for' du label doit etre identique a l'id de l'iput qui suit -->
+			            		<label for="nickname">Pseudo</label>
+				            	<input type="text" id="nickname" name="nickname" required minlength="4" required maxlength="20">
+				            	<label for="content">Commentaire</label>
+				            	<textarea id="content" name="content" required minlength="5" required maxlength="250"></textarea>
+                                <input type="submit" value="Valider">
+                                <?php if ($goodOrNot==1) { ?>
+                                        <p><?= $goodOrNeedToFill; ?></p> 
+                                <?php } ?>
+                                <input type="hidden" name="postId" value="<?=$post['Id'];?>">
+                                
+				            </form>            				
+        				</section>
+
+        				<section>
+        					<h3>Commentaires</h3>
+        					<ul>
+        						<?php foreach ($comments as $comment) { ?>
+        							<li class="comment">
+        								<h4>Posté par <?= $comment['Nickname']; ?> le <?= $comment['CreatedAt']; ?></h4>
+        								<p><?= $comment['Content']; ?></p>
+        								<?php if ($comment['Love']=='oui') { ?>
+			            					<p>&#x1F496</p>
+			            				<?php }else{ ?>
+			            					<p>&#x1F494</p>
+			            				<?php } ?>
+        							</li>            					
+            					<?php } ?>
+        					</ul>
+        				</section>
+        				<!-- lien qui permet de revenir a la page d'accueil -->
+        				<a id="linkarticle<?= $post['Id']; ?>" href="index.php"></br><- Revenir à la page d'accueil</a>
+            		</li>
+	            </ul>
+	        </main>
+	    </section>
+
+	<!-- Code principal -->
+	<script src="js/main.js"></script>
+	</body>
+
+</html>

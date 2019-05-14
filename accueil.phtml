@@ -1,0 +1,83 @@
+<!-- Fichier Template cotient le code HTML -->
+	<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+	    <meta charset="utf-8">
+	    <title><?php echo $titre; ?></title>
+	    <link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body>
+		<img id="baniereTop" src="img/yoshiBaniere.png" alt="Yoshi Island Baniere">
+	    <section id="global-container">
+	        <header>
+	            <h1>Yoshi's Island</h1>
+
+	            
+               
+	            <button><i class="fas fa-plus fa-2x"></i></button>
+
+	        </header>
+
+	        <main>
+	            <ul id="countdown-list"></ul>
+	            <ul>
+	            	<li><a href="https://fr.wikipedia.org/wiki/Yoshi">Yoshi WebSite</a></li>
+	            	
+	            	<?php $userSession = new UserSession(); ?>
+	            	<?php if ($userSession->isAuthenticated()){ ?>
+                    	<li><a id="disconect" href="signout.php">>Déconnexion</a></li>
+                	<?php }else{ ?>
+                		<li><a id="register" href="signup_form.php">Enregistrez Vous</a></li>
+		            	<li><a id="login" href="index.php?p=signin">Connectez Vous</a></li>
+		            <?php } ?>
+	            </ul>
+
+	             <?php if ($userSession->isAuthenticated()){ ?>
+                    <p><?= 'Bonjour '. $userSession->getUserName()  ?></p> 
+                <?php } ?>
+
+	            <?php if ($fb->hasMessages()) : ?>
+	            <ul>
+	            	<?php while ($message=$fb->fetch()) : ?> 
+	            	<li><?= $message; ?></li>
+	            	<?php endwhile ?>
+	            </ul>
+	            <?php endif ?>	 
+
+	            <ul>
+	            	<?php foreach ($posts as $post) : ?>
+	            		<li>
+	            			<article>
+	            				<!-- ecrit :   Article x -->
+	            				<p>Article<?= $post['Id']; ?></p>
+	            				<!-- ecrit :   le titre de l'article -->
+	            				<h3><?= $post['Title']; ?></h3>
+	            				<!-- ecrit :   le type de l'article  (ex yoshi solo) ou (ex yoshi and cie)-->
+	            				<small><?= $post['Name']; ?></small>
+	            				<!-- ecrit :   la date de création de l'article (ex 2019-03-21 13:58:34-->
+	            				<p><small>Date de création : <?= $post['CreatedAt']; ?></small></p>
+	            				<!-- ou -->
+	            				<!-- ecrit :   la date de création de l'article (ex 21/03/2019 -->
+	            				<!-- <p><small> Date de création:<?= (new DateTime($post['CreatedAt']))->format('d/m/Y'); ?></small></p> -->
+	            				<!-- ecrit :   le text/la déscription de l'article -->
+	            				<!-- la ligne suivante permet de tronquer la chaine de charactere selon une quantitée précise de caractere -->
+	            				<p><?= substr($post['Content'], 0,200); ?>[...]</p>
+	            				<?php if (!empty($post['Image'])) { ?>
+	            					<img id="img<?= $post['Id']; ?>" src="img/<?= $post['Image']; ?>">
+	            				<?php } ?>
+	            				<!-- lien qui permet de se rendre a la page de l'article x -->
+	            				<a id="linkarticle<?= $post['Id']; ?>" href="index.php?p=post&postId=<?= $post['Id']; ?>"></br>Lire la suite-></a>
+	            			</article>	
+	            		</li>
+	            	<?php endforeach ?>
+	            </ul>
+	        </main>
+	    </section>
+
+	<!-- Code principal -->
+	<script src="js/main.js"></script>
+	</body>
+
+</html>

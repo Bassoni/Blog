@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<HTML lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title><?php $title ?></title>
+		<?php if($reference == 'home') { ?>						
+        	<link rel="stylesheet" href="style1.css">
+        <?php } else if ($reference == 'games') { ?>
+        	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        	<link rel="stylesheet" href="style2.css">
+		<?php } else if ($reference == 'theGame') { ?>
+        	<link rel="stylesheet" href="style3.css">
+		<?php } ?>
+	</head>
+
+	<body>
+		<div id="global-container">
+			<header>
+				<div>
+					<?php if($reference == 'home') { ?>						
+		            	<img id="qp" src="img\BaniereQP0.png" alt="Image Quiz Panic" />
+		            	<img id="gs" src="img\GS.png" alt="Logo Gerwin Software" />
+		            <?php } else if ($reference == 'games') { ?>
+		            	<figure id="baniere">
+							<img id="qp" src="" alt="Image Gerwin Software" />
+						</figure>
+			            <ul>
+				            <button class="lastNextButton" id="last"><i class="fas fa-angle-double-left"></i></button>
+				            <button class="lastNextButton" id="next"><i class="fas fa-angle-double-right"></i></button>
+		            	</ul>
+					<?php } else if ($reference == 'theGame') { ?>
+		            	<img id="qp" src="img\BaniereQP1.png" alt="Image Quiz Panic" />
+					<?php } ?>
+				</div>
+
+	            <nav>
+	            	<ul>
+						<li>
+							<dl>
+								<dt id="menu"><?php if ($reference != 'home') { ?>
+									<a href="index.php" title="Menu"><?php } ?><strong>Menu</strong></a></dt>
+								<dd>
+									<ul id="submenu">
+										<li>
+											<dl>
+												<dt><a href="page2.php" title="Jeux">Jeux</a></dt>
+												<dd>
+													<ul class="sousmenu">
+														<li><a href="page3.php" title="Quiz panic">Quiz Panic</a></li>          
+										                <li><a href="#" title="Superbuzzer 2">Superbuzzer 2</a></li>
+										                <li><a href="#" title="Wazasound">Wazasound</a></li>
+										                <li><a href="#" title="Superbuzzer">Superbuzzer</a></li>
+										                <li><a href="#" title="Quiz tower">Quiz Tower</a></li>
+										                <li><a href="#" title="Tout le monde veut prendresa place online">Tout Le Monde Veut</br>Prendre Sa Place online</a></li>
+										                <li><a href="#" title="Questions pour un champion online">Questions Pour Un</br>Champion online</a></li>
+										                <li><a href="#" title="le 4eme duel online">le 4eme Duel online</a></li>
+										                <li><a href="#" title="Mon legionnaire">Mon Legionnaire</a></li>
+													</ul>
+												</dd>
+											</dl>
+										</li>
+										<li>
+											<dl>
+												<dt><a href="#" title="Qui sommes-nous">Qui sommes-nous</a></dt>
+												<dd>
+													<ul class="sousmenu">
+														<li><a href="#" title="Quiz panic">Quiz Panic</a></li>       
+										                <li><a href="#" title="Superbuzzer 2">Superbuzzer 2</a></li>
+										                <li><a href="#" title="Wazasound">Wazasound</a></li>
+										                <li><a href="#" title="Superbuzzer">Superbuzzer</a></li>
+										                <li><a href="#" title="Quiz tower">Quiz Tower</a></li>
+													</ul>
+												</dd>
+											</dl>
+										</li>
+										<li>
+											<dl>
+												<dt><a href="#" title="Jobs">Jobs</a></dt>
+												<dd>
+													<ul class="sousmenu">
+														<li><a href="#" title="Quiz panic">Quiz Panic</a></li>          
+										                <li><a href="#" title="Superbuzzer 2">Superbuzzer 2</a></li>
+										                <li><a href="#" title="Wazasound">Wazasound</a></li>
+										                <li><a href="#" title="Superbuzzer">Superbuzzer</a></li>
+										                <li><a href="#" title="Quiz tower">Quiz Tower</a></li>
+										                <li><a href="#" title="Tout le monde veut prendresa place online">Tout Le Monde Veut</br>Prendre Sa Place online</a></li>
+										                <li><a href="#" title="Questions pour un champion online">Questions Pour Un</br>Champion online</a></li>
+										            </ul>
+												</dd>
+											</dl>
+										</li>
+										<li>
+											<dl>
+												<dt><a href="#" title="Contact">Contact</a></dt>
+												<dd>
+													<ul class="sousmenu">
+														<li><a href="#" title="Quiz panic">Quiz Panic</a></li>          
+										                <li><a href="#" title="Superbuzzer 2">Superbuzzer 2</a></li>
+										                <li><a href="#" title="Wazasound">Wazasound</a></li>
+										            </ul>
+												</dd>
+											</dl>
+										</li>
+									</ul>
+								</dd>
+							</dl>	
+						</li>
+					</ul>
+				</nav>
+	        </header>

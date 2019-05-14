@@ -1,0 +1,17 @@
+.htaccess								  	(modifier le path)
+index									  .php  R.A.S
+controler  								  .php  (modifier les Switch-cases et les titres)
+header            main                footer          page    database    .php	(modifier header init  )  R.A.S
+header      toutes les fichier contenu main    footer   		  .phtml (modifier les contenues des pages html)
+style									  .css  (modifier les contenues des feuilles css)
+page2 	pages 3								  .php 	R.A.S
+
+
+
+soit 
+
+congroler 
+header
+main (s)
+footer
+fichier database ...

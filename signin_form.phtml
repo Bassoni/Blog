@@ -1,0 +1,94 @@
+
+<!-- Fichier Template cotient le code HTML -->
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <title><?php echo $titre; ?></title>
+        <link rel="stylesheet" href="css/main.css">
+        <script src="jquery-3.3.0.min.js"></script>
+        
+    </head>
+
+    <body>
+        <img id="baniereTop" src="img/yoshiBaniere.png" alt="Yoshi Island Baniere">
+        <section id="global-container">
+            <header>
+                <h1>Connectez vous</h1>
+                <button><i class="fas fa-plus fa-2x"></i></button>
+            </header>
+
+            <main>
+                <ul id="countdown-list"></ul>
+                <ul>
+                    <li><a href="https://fr.wikipedia.org/wiki/Yoshi">Yoshi WebSite</a></li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <article>
+                            <p></p>
+                            <h2><strong>Connectez vous</strong></h2>
+                            <!-- Veriffier si une image est contenu dans la table Post alors l'afficher -->
+                            <?php if (!empty($post['Image'])) { ?>
+                                <img id="img<?= $post['Id']; ?>" src="img/<?= $post['Image']; ?>">
+                            <?php } ?>
+                        </article>
+
+                        <section id="formRegister">
+                            <!-- formulaire -->
+                            <?php $userSession = new UserSession(); ?>
+                            <?php if ($userSession->isAuthenticated()){ ?>
+                                <p class="connect"><a href="signout.php">Déconnexion</a></p>
+                            <?php }else{ ?>
+                                
+                                <form action="index.php?p=signin" method="POST">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" required minlength="5" required maxlength="70">
+                                <!-- taille minimum  requise en base de doné pour stocké un mdp hashé  est de 60 VARCHAR-->
+                                <label for="password">Mots de Passe</label>
+                                <input type="text" id="password" name="password" required minlength="6" required maxlength="40">
+                                <input type="submit" value="Valider">
+                                <?php } ?>
+
+                                <?php if (isset($error)) { ?>
+                                    <p class="error">
+                                        <?=$error;?>
+                                    </p>
+                                <?php } ?>
+                            </form>
+                            
+                        </section>
+
+                         <section id="villecp">
+                            <h3>zone de ville par rapport au code postal</h3>
+                                <label for="zipcode">Code postale</label>
+                                <input type="text" id="zipcode" name="zipcode" required minlength="3" required maxlength="5">
+                                <div id="selectCity">
+                                    <label for="ville">Ville</label>
+                                    <select id="ville" name="ville" >
+                                    </select>
+                                </div>
+                        </section>
+
+                        <section>
+                            <h3>Zone de jeu</h3>
+                                <div >
+                                    <label for="themes">Thémes</label>
+                                    <select id="themes" name="themes" >
+                                    </select>
+                                </div>          
+                        </section>
+                        <!-- lien qui permet de revenir a la page d'accueil -->
+                        <a id="linkindex>" href="index.php"><br><- Revenir à la page d'accueil</a>
+                    </li>
+                </ul>
+            </main>
+        </section>
+
+    <!-- Code principal -->
+    <script src="js/main.js"></script>
+    </body>
+
+</html>

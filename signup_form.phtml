@@ -1,0 +1,87 @@
+
+<!-- Fichier Template cotient le code HTML -->
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <title><?php echo $titre; ?></title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body>
+        <img id="baniereTop" src="img/yoshiBaniere.png" alt="Yoshi Island Baniere">
+        <section id="global-container">
+            <header>
+                <h1>Enregistrez vous</h1>
+                <button><i class="fas fa-plus fa-2x"></i></button>
+            </header>
+
+            <main>
+                <ul id="countdown-list"></ul>
+                <ul>
+                    <li><a href="https://fr.wikipedia.org/wiki/Yoshi">Yoshi WebSite</a></li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <article>
+                            <p></p>
+                            <h2><strong>Enregistrez vous</strong></h2>
+                            <!-- Veriffier si une image est contenu dans la table Post alors l'afficher -->
+                            <?php if (!empty($post['Image'])) { ?>
+                                <img id="img<?= $post['Id']; ?>" src="img/<?= $post['Image']; ?>">
+                            <?php } ?>
+                        </article>
+
+                        <section id="formRegister">
+                            <!-- formulaire -->
+                            <form action="signup_form.php" method="POST">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" required minlength="5" required maxlength="70">
+                                <!-- taille minimum  requise en base de doné pour stocké un mdp hashé  est de 60 VARCHAR-->
+                                <label for="password">Mots de Passe</label>
+                                <input type="text" id="password" name="password" required minlength="6" required maxlength="40">
+                                <label for="firstname">Nom</label>
+                                <input type="text" id="firstname" name="firstname" required minlength="2" required maxlength="70" value="<?= $firstname ?>" >
+                                <label for="lastname">Prénom</label>
+                                <input type="text" id="lastname" name="lastname" required minlength="2" required maxlength="70" value="<?= $lastname ?>">
+                                <label for="birthdate">Date de naissance</label>
+                                <input type="date" id="birthdate" name="birthdate" value="<?= $birthdate ?>">
+                                <label for="address">Adresse</label>
+                                <input type="text" id="address" name="address" required minlength="2" required maxlength="150" value="<?= $address ?>">
+                                <label for="zipcode">Code postale</label>
+                                <input type="text" id="zipcode" name="zipcode" required minlength="5" required maxlength="5" value="<?= $zipcode ?>">
+                                <label for="city">Ville</label>
+                                <input type="text" id="city" name="city" required minlength="4" required maxlength="70">
+                                <p>Sexe</p>
+                                <!-- le 'for' du label doit etre identique a l'id de l'iput qui suit --> 
+                                <input type="radio" name="gender" value="M" id="masculin" checked="checked" /><label for="masculin">M</label></p>
+                                <input type="radio" name="gender" value="F" id="feminin"  /><label for="masculin">F</label></p>
+                                <input type="submit" value="Valider">
+                                <?php if (isset($error)) { ?>
+                                    <p class="error">
+                                        <?=$error;?>
+                                    </p>
+                                <?php } ?>
+                            </form>
+                        </section>
+
+                        <section>
+                            <h3>Zone de jeu</h3>
+                            <ul>
+                               
+                            </ul>
+                        </section>
+                        <!-- lien qui permet de revenir a la page d'accueil -->
+                        <a id="linkindex>" href="index.php"></br><- Revenir à la page d'accueil</a>
+                    </li>
+                </ul>
+            </main>
+        </section>
+
+    <!-- Code principal -->
+    <script src="js/main.js"></script>
+    </body>
+
+</html>

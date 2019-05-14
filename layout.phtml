@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Mon super BLOG</title>
+</head>
+<body>
+	<header>
+    	<h1>Bienvenue sur mon super BLOG</h1> 
+        <nav>
+            <ul>
+            	<?php if (isAuthenticated()): ?>
+            	    <li>Bonjour <?=getUserName(); ?></li>
+            	    <li><a href="signout.php">Déconnexion</a></li>
+        		<?php else: ?>
+            		<li><a href="signup_form.php">Créer un compte</a></li>
+            		<li><a href="signin_form.php">Connexion</a></li>
+            	<?php endif; ?>
+        	</ul>
+        </nav>
+    </header>
+    <main>
+    	<!-- Inclusion du template de la page -->
+    	<?php include $page . '.phtml'; ?>
+    </main>
+    <footer>
+    	<!-- Pied de page -->
+    </footer>
+</body>
+</html>
